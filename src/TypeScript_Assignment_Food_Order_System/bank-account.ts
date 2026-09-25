@@ -1,37 +1,22 @@
-// 1. Class
+class BankAccount {
+  accountNumber: number;
+  accountHolder: string;
+  balance: number;
+  accountType: string;
 
-// A class is a blueprint for creating objects.
+  constructor(
+    accountNUmber: number,
+    accountHolder: string,
+    balance: number,
+    accountType: string,
+  ) {
+    this.accountNumber = accountNUmber;
+    this.accountHolder = accountHolder;
+    this.balance = balance;
+    this.accountType = accountType;
+  }
+}
 
-// class BankAccount {
-//     accountNumber: number;
-//     accountHolder: string;
-//     balance: number;
-//     accountType: string;
-// }
-// 2. Object
+const account1 = new BankAccount(101, "Arman", 10000, "Savings");
+console.log(account1);
 
-// An object is created from the class:
-
-// const account1 = new BankAccount();
-
-// Now account1 is a BankAccount object.
-
-// 3. Try this now
-
-// Put this in src/bank-account.ts:
-
-// class BankAccount {
-//     accountNumber: number;
-//     accountHolder: string;
-//     balance: number;
-//     accountType: string;
-// }
-
-// const account1 = new BankAccount();
-
-// account1.accountNumber = 101;
-// account1.accountHolder = "Satya";
-// account1.balance = 10000;
-// account1.accountType = "Savings";
-
-// console.log(account1);
