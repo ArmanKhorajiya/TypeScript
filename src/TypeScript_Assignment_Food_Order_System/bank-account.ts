@@ -1,63 +1,30 @@
-// class BankAccount {
-//   readonly accountNumber: number;
-//   public accountHolder: string;
-//   private balance: number;
-//   protected accountType: string;
+class BankAccount {
+  accountNumber: number;
+  ownerName: string;
+  private balance: number;
 
-//   constructor(
-//     accountNUmber: number,
-//     accountHolder: string,
-//     balance: number,
-//     accountType: string,
-//   ) {
-//     this.accountNumber = accountNUmber;
-//     this.accountHolder = accountHolder;
-//     this.balance = balance;
-//     this.accountType = accountType;
-//   }
-// }
-
-// const account1 = new BankAccount(101, "Arman", 10000, "Savings");
-// console.log(account1);
-
-// class Bank {
-//   static totalAccounts = 0;
-
-//   constructor() {
-//     Bank.totalAccounts += 1;
-//   }
-
-//   static getTotalAccounts() {
-//     return Bank.totalAccounts;
-//   }
-// }
-
-// const b1 = new Bank();
-// const b2 = new Bank();
-// const b3 = new Bank();
-
-// console.log(Bank.getTotalAccounts());
-
-class Student {
-  private name: string;
-
-  constructor(name: string) {
-    this.name = name;
+  constructor(accountNumber: number, ownerName: string, balance: number) {
+    this.accountNumber = accountNumber;
+    this.ownerName = ownerName;
+    this.balance = balance;
   }
-
-  set studentName(name: string) {
-    if (name.length < 3) {
-      throw new Error("Name must have at least 3 characyers");
+  deposit(amount: number) {
+    this.balance += amount;
+  }
+  withdraw(amount: number) {
+    if (amount <= this.balance) {
+      this.balance -= amount;
     }
-    this.name = name.toUpperCase();
   }
-
-  get studentName() {
-    return this.name;
+  getBalance() {
+    return this.balance;
   }
 }
-const student = new Student("arman");
+const account1 = new BankAccount(101, "Arman", 10000);
+const account2 = new BankAccount(102, "Rahul", 5000);
 
-student.studentName = "arman";
+account1.deposit(2000);
+account2.withdraw(3000);
 
-console.log(student.studentName);
+console.log(account1.getBalance());
+console.log(account2.getBalance());
